@@ -1,0 +1,14 @@
+[
+  {"type": "📚 Learn", "title": "Python Documentation", "url": "https://docs.python.org/3/", "description": "Core Python language references and tutorials."},
+  {"type": "📚 Learn", "title": "Java Documentation", "url": "https://docs.oracle.com/javase/tutorial/", "description": "Java fundamentals and standard libraries."},
+  {"type": "📚 Learn", "title": "MDN Web Docs", "url": "https://developer.mozilla.org/en-US/", "description": "Frontend and web standards documentation."},
+  {"type": "🎥 Video", "title": "FreeCodeCamp", "url": "https://www.freecodecamp.org/", "description": "Project-based lessons for web and programming skills."},
+  {"type": "🎥 Video", "title": "GeeksforGeeks", "url": "https://www.geeksforgeeks.org/", "description": "Concept explanations and coding practice."},
+  {"type": "💻 Practice", "title": "LeetCode", "url": "https://leetcode.com/", "description": "Coding practice and interview preparation."},
+  {"type": "💻 Practice", "title": "HackerRank", "url": "https://www.hackerrank.com/", "description": "Practice coding challenges in many domains."},
+  {"type": "📖 Documentation", "title": "W3Schools", "url": "https://www.w3schools.com/", "description": "Quick, beginner-friendly web references."},
+  {"type": "📚 Learn", "title": "Coursera", "url": "https://www.coursera.org/", "description": "Structured and guided university-style courses."},
+  {"type": "📚 Learn", "title": "edX", "url": "https://www.edx.org/", "description": "Academic courses and professional learning paths."},
+  {"type": "📚 Learn", "title": "NPTEL", "url": "https://nptel.ac.in/", "description": "Indian engineering and technology learning resources."},
+  {"type": "💻 Practice", "title": "GitHub", "url": "https://github.com/", "description": "Read source code, explore projects, and build a portfolio."}
+]

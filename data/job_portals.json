@@ -1,0 +1,10 @@
+[
+  {"portal_name": "LinkedIn Jobs", "why": "Strong for professional networking and role-specific hiring pipelines.", "url": "https://www.linkedin.com/jobs/"},
+  {"portal_name": "Naukri", "why": "Popular for Indian job markets and entry-level hiring.", "url": "https://www.naukri.com/"},
+  {"portal_name": "Indeed", "why": "Large international job listings for many tech roles.", "url": "https://www.indeed.com/"},
+  {"portal_name": "Wellfound", "why": "Useful for startup and product-based job opportunities.", "url": "https://wellfound.com/"},
+  {"portal_name": "Internshala", "why": "Helpful for internships and fresher roles.", "url": "https://internshala.com/"},
+  {"portal_name": "Glassdoor", "why": "Good for company research, salaries, and hiring signals.", "url": "https://www.glassdoor.com/"},
+  {"portal_name": "Cutshort", "why": "Well-suited for early-career and startup hiring.", "url": "https://cutshort.io/"},
+  {"portal_name": "Foundit", "why": "Useful for role-focused and entry-level hiring in India.", "url": "https://www.foundit.in/"}
+]

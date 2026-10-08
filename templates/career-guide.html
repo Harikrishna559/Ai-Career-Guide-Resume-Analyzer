@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% from 'partials/ai_disclosure.html' import render_ai_disclosure %}
+
+{% block title %}Career Guide{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/career.css') }}" />{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container narrow">
+    <h1>Build Your Career Roadmap</h1>
+    <p>Tell us about your profile and we will build a personalized 30-day plan.</p>
+  </div>
+</section>
+
+<section class="container form-shell">
+  <form id="career-form" class="panel form-card" novalidate>
+    <div class="field-row">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" placeholder="Your name" required />
+      </label>
+      <label>
+        <span>Target Role</span>
+        <select name="target_role" id="role-select" required>
+          <option value="">Select a role</option>
+          {% for role in roles %}
+            <option value="{{ role.role }}">{{ role.role }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+
+    <div class="field-row">
+      <label>
+        <span>Current Skills</span>
+        <textarea name="current_skills" rows="4" placeholder="Example: Python basics, HTML, CSS" required></textarea>
+      </label>
+    </div>
+
+    <div class="field-row">
+      <label>
+        <span>Experience Level</span>
+        <select name="experience_level" required>
+          <option value="">Choose level</option>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+          <option>Fresher</option>
+        </select>
+      </label>
+      <label>
+        <span>Hours Per Day</span>
+        <input type="number" name="hours_per_day" min="1" max="12" value="2" required />
+      </label>
+    </div>
+
+    <div class="field-row">
+      <label>
+        <span>Preferred Learning Style</span>
+        <select name="preferred_learning_style">
+          <option value="Self paced">Self paced</option>
+          <option value="Project based">Project based</option>
+          <option value="Structured videos">Structured videos</option>
+          <option value="Hands on practice">Hands on practice</option>
+        </select>
+      </label>
+      <label>
+        <span>Career Goal</span>
+        <input type="text" name="career_goal" placeholder="Optional career goal" />
+      </label>
+    </div>
+
+    {{ render_ai_disclosure('career-ai-consent') }}
+
+    <div class="submit-row">
+      <button type="submit" class="btn btn-primary submit-btn">Generate My 30-Day Plan</button>
+    </div>
+    <div id="career-error" class="form-message error" hidden></div>
+    <div id="career-loading" class="loading-block" hidden>
+      <div class="spinner"></div>
+      <span>Analyzing your career profile...</span>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/career.js') }}"></script>
+{% endblock %}

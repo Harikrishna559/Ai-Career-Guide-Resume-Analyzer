@@ -1,0 +1,15 @@
+{% macro render_ai_disclosure(consent_id) -%}
+<aside class="ai-disclosure" aria-label="AI processing and privacy disclosure">
+  <p>
+    Some features use Google Gemini AI. Information you enter or upload for AI-powered features may be sent to the configured AI provider for processing. Avoid submitting unnecessary sensitive or private information.
+    This application has no user database and does not intentionally store raw resume or interview-answer content in its own database. Deterministic features are available without AI where applicable. The AI provider's privacy and retention policies are controlled by that provider and are not guaranteed by this application.
+  </p>
+  <label class="ai-consent-label" for="{{ consent_id }}">
+    <input id="{{ consent_id }}" name="ai_consent" type="checkbox" value="true" aria-describedby="{{ consent_id }}-error" />
+    <span>I understand that information I submit for this AI-powered feature may be processed by the configured AI provider (Google Gemini), and I agree to proceed.</span>
+  </label>
+  <p id="{{ consent_id }}-error" class="ai-consent-error" role="alert" hidden>
+    AI processing consent is required before using this feature.
+  </p>
+</aside>
+{%- endmacro %}

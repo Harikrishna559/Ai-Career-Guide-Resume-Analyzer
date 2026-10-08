@@ -1,0 +1,7 @@
+[
+  {"role": "Python Developer", "certifications": ["Python for Everybody", "Google Cloud Associate", "AWS Cloud Practitioner"]},
+  {"role": "Java Developer", "certifications": ["Oracle Java Certification", "Spring Professional", "AWS Cloud Practitioner"]},
+  {"role": "Frontend Developer", "certifications": ["Meta Front-End Developer", "Google UX Design", "JavaScript Algorithms Certification"]},
+  {"role": "Data Analyst", "certifications": ["Google Data Analytics", "Microsoft Power BI", "SQL Certification"]},
+  {"role": "Cloud Engineer", "certifications": ["AWS Solutions Architect", "Azure Fundamentals", "Google Cloud Associate"]}
+]

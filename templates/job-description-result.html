@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Job Description Match Result{% endblock %}
+
+{% block content %}
+<section class="container results-layout">
+  <div class="results-header">
+    <h1>Job Description Match</h1>
+    <div class="action-row">
+      <button type="button" class="btn btn-secondary" id="copy-jd-match">Copy Match Summary</button>
+      <button type="button" class="btn btn-primary" id="download-jd-report">Download Report</button>
+      <a class="btn btn-ghost" href="/job-description">Analyze Another Role</a>
+    </div>
+  </div>
+
+  <div id="jd-results" class="results-grid"></div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/job-description.js') }}"></script>
+{% endblock %}

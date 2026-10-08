@@ -1,0 +1,8 @@
+[
+  {"category": "Programming Languages", "skills": ["Python", "Java", "JavaScript", "C++", "C#"]},
+  {"category": "Web Development", "skills": ["HTML", "CSS", "JavaScript", "REST APIs", "DOM", "Responsive Design"]},
+  {"category": "Databases", "skills": ["SQL", "MySQL", "PostgreSQL", "MongoDB"]},
+  {"category": "Frameworks", "skills": ["Flask", "Django", "Spring Boot", "React", "Node.js"]},
+  {"category": "Cloud & DevOps", "skills": ["Docker", "Kubernetes", "AWS", "Azure", "Git", "CI/CD"]},
+  {"category": "Data & AI", "skills": ["Machine Learning", "Data Analysis", "Excel", "Power BI", "Tableau"]}
+]

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Career Guide & Resume Analyzer{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">AI Career Assistant</span>
+      <h1>Build a clearer career path with AI support.</h1>
+      <p class="subtitle">This platform helps students and early-career professionals plan their next move, improve their resume, and match their profile to real job requirements.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/career-guide">Create Career Plan</a>
+        <a class="btn btn-secondary" href="/resume-analyzer">Analyze Resume</a>
+        <a class="btn btn-ghost" href="/job-description">Analyze Job Description</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-label="Platform capabilities">
+      <div class="mini-metric">
+        <span class="metric-label">Career Guide</span>
+        <strong>Personalized career planning</strong>
+      </div>
+      <div class="mini-metric">
+        <span class="metric-label">Resume Analyzer</span>
+        <strong>ATS-style resume feedback</strong>
+      </div>
+      <div class="mini-metric">
+        <span class="metric-label">Learning Plan</span>
+        <strong>Structured next steps</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-block" id="how-it-works">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow light">How it works</span>
+      <h2>Three simple steps to get job-ready.</h2>
+    </div>
+    <div class="process-grid">
+      <article class="process-card">
+        <span class="step-badge">01</span>
+        <h3>Set your goal</h3>
+        <p>Tell us your target role, current skills, and time available each day.</p>
+      </article>
+      <article class="process-card">
+        <span class="step-badge">02</span>
+        <h3>Analyze and improve</h3>
+        <p>Review your resume, scan your ATS fit, and spot missing skills or keywords.</p>
+      </article>
+      <article class="process-card">
+        <span class="step-badge">03</span>
+        <h3>Act on the roadmap</h3>
+        <p>Follow a structured 30-day plan with projects, resources, and interview prep.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow light">Features</span>
+      <h2>Everything you need to move forward.</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Career Guide</h3>
+        <p>Build a personalized roadmap based on your experience level, role target, and daily learning time.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3>Resume Analyzer</h3>
+        <p>Get a fast ATS-style score with strengths, missing skills, and the most important improvements to make.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Job Match</h3>
+        <p>Compare your profile against a job description to see your match quality and key gaps.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Career Dashboard</h3>
+        <p>Track readiness, ATS performance, job match progress, and the next best action to focus on.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

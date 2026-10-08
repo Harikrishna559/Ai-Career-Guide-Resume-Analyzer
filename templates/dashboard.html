@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container narrow">
+    <h1>Career Dashboard</h1>
+    <p>Review results from your saved career, resume, job match, and interview activities.</p>
+  </div>
+</section>
+
+<section class="container dashboard-shell">
+  <div class="dashboard-layout">
+    <div id="dashboard-summary" class="dashboard-grid"></div>
+    <aside class="dashboard-action panel">
+      <span class="eyebrow light">Continue your career preparation</span>
+      <h3>Choose a next step</h3>
+      <p>Your results appear here after you use a feature. Career plans, resume analysis, job matching, and interview practice are available whenever you are ready.</p>
+      <div class="dashboard-links">
+        <a href="/career-guide" class="btn btn-primary">Create a career plan</a>
+        <a href="/resume-analyzer" class="btn btn-secondary">Analyze a resume</a>
+        <a href="/interview-simulator" class="btn btn-ghost">Practice an interview</a>
+      </div>
+    </aside>
+  </div>
+  <section class="panel" aria-labelledby="saved-data-heading">
+    <h2 id="saved-data-heading">Saved application data</h2>
+    <p>Clear locally saved career, resume, job match, interview results, and roadmap progress from this browser.</p>
+    <button type="button" class="btn btn-secondary" id="clear-saved-data">Clear saved application data</button>
+    <p id="clear-data-status" role="status" aria-live="polite" hidden></p>
+  </section>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}AI Career Guide & Resume Analyzer{% endblock %}</title>
+    <meta name="description" content="Understand your career path. Improve your resume. Get job-ready." />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="/" class="brand" aria-label="AI Career Guide home">
+          <span class="brand-mark">AI</span>
+          <span>Career Guide</span>
+        </a>
+
+        <button
+          type="button"
+          class="mobile-menu-toggle"
+          id="mobile-menu-toggle"
+          aria-label="Open navigation menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          hidden
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="navigation-panel" id="navigation-panel">
+          <nav class="nav" id="primary-navigation" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/career-guide">Career Guide</a>
+            <a href="/resume-analyzer">Resume Analyzer</a>
+            <a href="/job-description">Job Match</a>
+            <a href="/interview-simulator">Interview Simulator</a>
+            <a href="/dashboard">Dashboard</a>
+          </nav>
+
+          <div class="nav-utility" aria-label="Quick actions">
+            <a href="/#how-it-works" class="nav-link subtle">Help</a>
+            <a href="/dashboard" class="nav-link accent">Profile / Settings</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>AI Career Guide & Resume Analyzer</p>
+        <p>Understand your career path. Improve your resume. Get job-ready.</p>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

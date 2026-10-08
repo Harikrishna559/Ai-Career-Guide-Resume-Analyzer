@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Resume Analysis Result{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}" />{% endblock %}
+
+{% block content %}
+<section class="container results-layout">
+  <div class="results-header">
+    <h1>Resume Analysis</h1>
+    <div class="action-row">
+      <button type="button" class="btn btn-secondary" id="copy-suggestions">Copy Suggestions</button>
+      <button type="button" class="btn btn-primary" id="download-analysis">Download Analysis</button>
+      <a class="btn btn-ghost" href="/resume-analyzer">Analyze Another Resume</a>
+    </div>
+  </div>
+
+  <div id="resume-results" class="results-grid"></div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/resume.js') }}"></script>
+{% endblock %}

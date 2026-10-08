@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% from 'partials/ai_disclosure.html' import render_ai_disclosure %}
+
+{% block title %}AI Interview Simulator{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/interview.css') }}" />{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container narrow">
+    <h1>AI Interview Simulator</h1>
+    <p>Practice realistic interviews with AI and improve before your real interview.</p>
+  </div>
+</section>
+
+<section class="container interview-shell">
+  <div id="interview-setup" class="panel form-card">
+    <form id="interview-setup-form" novalidate>
+      <div class="field-row">
+        <label>
+          <span>Target Role</span>
+          <select name="target_role" id="target-role-select" required>
+            <option value="">Select a role</option>
+            <option>Software Engineer</option>
+            <option>Python Developer</option>
+            <option>Java Developer</option>
+            <option>Frontend Developer</option>
+            <option>Backend Developer</option>
+            <option>Full Stack Developer</option>
+            <option>Data Analyst</option>
+            <option>Data Scientist</option>
+            <option>AI/ML Engineer</option>
+            <option>Cloud Engineer</option>
+            <option>DevOps Engineer</option>
+            <option>Cybersecurity Engineer</option>
+            <option>Custom Role</option>
+          </select>
+        </label>
+        <label id="custom-role-field" hidden>
+          <span>Custom Role</span>
+          <input type="text" name="custom_role" placeholder="Enter target role" />
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label>
+          <span>Experience Level</span>
+          <select name="experience_level" required>
+            <option value="Student">Student</option>
+            <option value="Fresher">Fresher</option>
+            <option value="Graduate">Graduate</option>
+            <option value="0–1 years">0–1 years</option>
+            <option value="1–3 years">1–3 years</option>
+            <option value="3+ years">3+ years</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Interview Type</span>
+          <select name="interview_type" required>
+            <option value="Technical">Technical</option>
+            <option value="HR">HR</option>
+            <option value="Behavioral">Behavioral</option>
+            <option value="Coding">Coding</option>
+            <option value="Mixed">Mixed</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label>
+          <span>Difficulty</span>
+          <select name="difficulty" required>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Number of Questions</span>
+          <select name="question_count" required>
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="field-row single-column">
+        <label>
+          <span>Resume Upload (optional)</span>
+          <input type="file" name="resume" id="course-resume" accept=".pdf,.docx,.txt" />
+        </label>
+      </div>
+
+      <div class="field-row single-column">
+        <label>
+          <span>Job Description (optional)</span>
+          <textarea name="job_description" rows="6" placeholder="Paste the job description here."></textarea>
+        </label>
+      </div>
+
+      {{ render_ai_disclosure('interview-start-ai-consent') }}
+
+      <div class="submit-row">
+        <button type="submit" class="btn btn-primary">Start Interview</button>
+      </div>
+      <div id="interview-error" class="form-message error" hidden></div>
+      <div id="interview-loading" class="loading-block" hidden>
+        <div class="spinner"></div>
+        <span>Generating interview questions...</span>
+      </div>
+    </form>
+  </div>
+
+  <div id="interview-stage" class="panel interview-stage hidden" aria-live="polite">
+    <div class="interview-header">
+      <span class="eyebrow light">Interview Progress</span>
+      <h2 id="progress-label">Question 1 of 10</h2>
+      <div class="progress-bar"><span id="progress-fill" class="progress-fill" style="width: 10%"></span></div>
+    </div>
+
+    <div class="question-card">
+      <p class="question-meta"><strong>Interviewer</strong> <span id="question-category">Technical</span></p>
+      <h3 id="question-text">Question</h3>
+      <div id="voice-warning" class="voice-warning hidden">Voice input is not supported in this browser. You can type your answer.</div>
+      <textarea id="answer-box" rows="8" placeholder="Type your answer here..."></textarea>
+      {{ render_ai_disclosure('interview-answer-ai-consent') }}
+      <div id="interview-answer-error" class="form-message error" role="alert" hidden></div>
+      <div class="voice-controls">
+        <button type="button" class="btn btn-secondary" id="voice-toggle">🎤 Start Recording</button>
+      </div>
+    </div>
+
+    <div class="interview-actions">
+      <button type="button" id="submit-answer" class="btn btn-primary">Submit Answer</button>
+      <button type="button" id="skip-question" class="btn btn-ghost">Skip Question</button>
+      <button type="button" id="end-interview" class="btn btn-secondary">End Interview</button>
+    </div>
+  </div>
+
+  <div id="interview-result" class="panel evaluation-panel hidden">
+    <h2>Answer Evaluation</h2>
+    <p>When a valid AI response is available, these evaluation scores and feedback are AI-generated. If the response is malformed, a deterministic heuristic fallback is used instead.</p>
+    <div class="score-row">
+      <span>Evaluation Overall Score</span>
+      <strong id="evaluation-score">0/100</strong>
+    </div>
+    <div class="score-grid">
+      <div><span>Technical Accuracy</span><strong id="technical-score">0/100</strong></div>
+      <div><span>Communication</span><strong id="communication-score">0/100</strong></div>
+      <div><span>Completeness</span><strong id="completeness-score">0/100</strong></div>
+      <div><span>Clarity (not a confidence measure)</span><strong id="clarity-score">0/100</strong></div>
+    </div>
+
+    <div class="feedback-grid">
+      <div class="feedback-card">
+        <h3>What You Did Well</h3>
+        <ul id="strengths-list"></ul>
+      </div>
+      <div class="feedback-card">
+        <h3>What Could Be Improved</h3>
+        <ul id="improvements-list"></ul>
+      </div>
+    </div>
+
+    <div class="feedback-card better-answer">
+      <h3>Suggested Better Answer</h3>
+      <p id="better-answer-text"></p>
+    </div>
+
+    <div class="submit-row">
+      <button type="button" id="next-question" class="btn btn-primary">Continue to Next Question</button>
+    </div>
+  </div>
+
+  <div id="interview-final" class="panel final-panel hidden">
+    <h2>Interview Complete 🎉</h2>
+    <p id="final-report-loading" class="loading-block" role="status" hidden>Generating your final report...</p>
+    <p id="final-report-error" class="form-message error" role="alert" hidden></p>
+    <div class="submit-row">
+      <button type="button" id="retry-final-report" class="btn btn-primary" hidden>Retry Final Report</button>
+    </div>
+    <div class="final-header">
+      <div>
+        <span class="eyebrow light">Calculated Overall Interview Score</span>
+        <h3 id="final-score">0 / 100</h3>
+      </div>
+      <div>
+        <span class="eyebrow light">Readiness Band (from calculated score)</span>
+        <h3 id="final-readiness">Good</h3>
+      </div>
+    </div>
+
+    <div class="score-breakdown">
+      <div><span>Technical Knowledge</span><strong id="final-technical">0%</strong></div>
+      <div><span>Communication</span><strong id="final-communication">0%</strong></div>
+      <div><span>Problem Solving</span><strong id="final-problem-solving">0%</strong></div>
+      <div><span>Project Knowledge</span><strong id="final-project-knowledge">0%</strong></div>
+      <div><span>HR Readiness</span><strong id="final-hr">0%</strong></div>
+    </div>
+    <p>Technical and communication values average the answer-evaluation outputs. Problem solving, project knowledge, and HR readiness are locally derived estimates with a 50-point minimum; the overall score averages all seven values. These are not separate AI evaluations.</p>
+
+    <div class="feedback-grid">
+      <div class="feedback-card">
+        <h3>Top Strengths</h3>
+        <ul id="final-strengths"></ul>
+      </div>
+      <div class="feedback-card">
+        <h3>Areas to Improve</h3>
+        <ul id="final-weaknesses"></ul>
+      </div>
+    </div>
+
+    <div class="feedback-card weak-questions-box">
+      <h3>Weak Questions</h3>
+      <div id="weak-questions" class="weak-questions"></div>
+    </div>
+
+    <div class="feedback-card study-plan-box">
+      <h3>Generic 7-Day Interview Practice Plan</h3>
+      <p>This fixed plan is not tailored to your role or evaluated answers.</p>
+      <ul id="study-plan" class="simple-list"></ul>
+    </div>
+
+    <div class="submit-row">
+      <button type="button" id="retry-weak-questions" class="btn btn-primary">Practice Weak Areas</button>
+      <button type="button" id="download-interview-report" class="btn btn-secondary">Download Interview Report</button>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/interview.js') }}"></script>
+{% endblock %}

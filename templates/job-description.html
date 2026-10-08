@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Job Description Match{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container narrow">
+    <h1>Compare Against a Job Description</h1>
+    <p>Paste the job description and see how closely your profile aligns with it.</p>
+  </div>
+</section>
+
+<section class="container form-shell">
+  <form id="job-description-form" class="panel form-card" novalidate>
+    <label>
+      <span>Target Role</span>
+      <input type="text" name="target_role" id="jd-target-role" placeholder="Example: Python Developer" required />
+    </label>
+
+    <label>
+      <span>Paste Job Description</span>
+      <textarea name="job_description" id="job-description" rows="12" placeholder="Paste the full job description here..." required></textarea>
+    </label>
+
+    <label>
+      <span>Optional Resume Text</span>
+      <textarea name="resume_text" id="resume-text" rows="6" placeholder="Add resume text if you want a more accurate comparison."></textarea>
+    </label>
+
+    <div class="submit-row">
+      <button type="submit" class="btn btn-primary">Analyze Job Match</button>
+    </div>
+    <div id="jd-error" class="form-message error" hidden></div>
+    <div id="jd-loading" class="loading-block" hidden>
+      <div class="spinner"></div>
+      <span>Comparing your profile to the job description...</span>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/job-description.js') }}"></script>
+{% endblock %}

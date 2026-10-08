@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Resume Analyzer{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/resume.css') }}" />{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container narrow">
+    <h1>Analyze Your Resume</h1>
+    <p>Upload your resume, choose your target role, and review your strongest opportunities for improvement.</p>
+  </div>
+</section>
+
+<section class="container form-shell">
+  <form id="resume-form" class="panel form-card" enctype="multipart/form-data" novalidate>
+    <div class="upload-box" id="upload-box">
+      <input id="resume-file" type="file" name="resume" accept=".pdf,.docx,.txt" hidden />
+      <label for="resume-file" class="upload-label" aria-label="Upload resume file">
+        <span class="upload-icon">📄</span>
+        <strong>Upload Resume</strong>
+        <small>Supported: PDF / DOCX / TXT</small>
+      </label>
+      <div id="file-name" class="file-name">No file selected</div>
+    </div>
+
+    <div class="field-row single-column">
+      <label>
+        <span>Target Role</span>
+        <input type="text" name="target_role" id="resume-target-role" placeholder="Example: Java Developer" required />
+      </label>
+    </div>
+
+    <div class="field-row single-column">
+      <label>
+        <span>Optional Job Description</span>
+        <textarea name="job_description" id="resume-job-description" rows="6" placeholder="Paste the job description here to improve your ATS comparison and recommendations."></textarea>
+      </label>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn btn-primary" id="resume-submit-btn">Analyze Resume</button>
+    </div>
+    <div id="resume-error" class="form-message error" hidden></div>
+    <div id="resume-loading" class="loading-block" hidden>
+      <div class="spinner"></div>
+      <span>Analyzing your resume...</span>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/resume.js') }}"></script>
+{% endblock %}

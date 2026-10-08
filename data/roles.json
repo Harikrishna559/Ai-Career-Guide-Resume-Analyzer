@@ -1,0 +1,106 @@
+{
+  "Software Developer": {
+    "core_skills": ["Programming", "Problem solving", "Data structures", "Git", "Debugging"],
+    "technologies": ["Python", "Java", "JavaScript", "SQL", "Git"],
+    "recommended_projects": ["Portfolio website", "Task tracker", "API client"],
+    "certifications": ["Google IT Automation", "AWS Cloud Practitioner"],
+    "keywords": ["software engineering", "debugging", "git", "problem solving", "apis"],
+    "interview_topics": ["Data structures", "OOP", "System design basics", "Git workflows"]
+  },
+  "Python Developer": {
+    "core_skills": ["Python", "OOP", "SQL", "Git", "REST API"],
+    "technologies": ["Django", "Flask", "FastAPI", "PostgreSQL", "Docker"],
+    "recommended_projects": ["Task management API", "Blog backend", "Inventory dashboard"],
+    "certifications": ["Python for Everybody", "AWS Cloud Practitioner"],
+    "keywords": ["python", "flask", "django", "sql", "rest api", "git", "docker"],
+    "interview_topics": ["Python fundamentals", "OOP", "SQL joins", "REST APIs", "Testing"]
+  },
+  "Java Developer": {
+    "core_skills": ["Java", "OOP", "Spring Boot", "SQL", "REST API"],
+    "technologies": ["Java", "Spring", "Spring Boot", "Hibernate", "Maven"],
+    "recommended_projects": ["Employee management system", "Shopping cart API", "Library backend"],
+    "certifications": ["Oracle Java SE", "Spring Professional"],
+    "keywords": ["java", "spring boot", "rest api", "sql", "hibernate", "git"],
+    "interview_topics": ["Java collections", "OOP", "Spring Boot", "SQL", "Exception handling"]
+  },
+  "Frontend Developer": {
+    "core_skills": ["HTML", "CSS", "JavaScript", "Responsive Design", "Accessibility"],
+    "technologies": ["HTML", "CSS", "JavaScript", "React", "Bootstrap"],
+    "recommended_projects": ["Portfolio website", "E-commerce landing page", "Dashboard UI"],
+    "certifications": ["Meta Front-End Developer", "Google UX Design"],
+    "keywords": ["html", "css", "javascript", "responsive design", "ui", "accessibility"],
+    "interview_topics": ["DOM", "CSS layouts", "JavaScript events", "Accessibility", "Responsive design"]
+  },
+  "Backend Developer": {
+    "core_skills": ["APIs", "SQL", "Database design", "Authentication", "Testing"],
+    "technologies": ["Node.js", "Express", "Flask", "FastAPI", "MongoDB"],
+    "recommended_projects": ["Blog API", "Authentication service", "Order system backend"],
+    "certifications": ["AWS Cloud Practitioner", "Backend development certificate"],
+    "keywords": ["api", "database", "authentication", "sql", "rest", "security"],
+    "interview_topics": ["REST APIs", "Database design", "Authentication", "Caching", "Testing"]
+  },
+  "Full Stack Developer": {
+    "core_skills": ["HTML", "CSS", "JavaScript", "Python", "SQL", "Git"],
+    "technologies": ["React", "Node.js", "Flask", "MongoDB", "Docker"],
+    "recommended_projects": ["Full-stack task manager", "E-commerce app", "Course platform"],
+    "certifications": ["AWS Cloud Practitioner", "Full-stack web development"],
+    "keywords": ["full stack", "frontend", "backend", "api", "sql", "git"],
+    "interview_topics": ["Full-stack architecture", "REST APIs", "DB design", "Deployment", "Testing"]
+  },
+  "Data Analyst": {
+    "core_skills": ["Excel", "SQL", "Data cleaning", "Visualizations", "Statistics"],
+    "technologies": ["Excel", "SQL", "Power BI", "Tableau", "Python"],
+    "recommended_projects": ["Sales dashboard", "Customer churn analysis", "Revenue report"],
+    "certifications": ["Google Data Analytics", "Power BI certification"],
+    "keywords": ["excel", "sql", "power bi", "dashboard", "data analysis", "statistics"],
+    "interview_topics": ["SQL queries", "Data cleaning", "Dashboard design", "Business metrics", "Excel functions"]
+  },
+  "Data Scientist": {
+    "core_skills": ["Python", "Statistics", "Machine learning", "SQL", "Model evaluation"],
+    "technologies": ["Python", "Pandas", "NumPy", "Scikit-learn", "Tableau"],
+    "recommended_projects": ["Customer segmentation", "Sales forecasting", "Model evaluation dashboard"],
+    "certifications": ["IBM Data Science", "Google Data Analytics"],
+    "keywords": ["python", "statistics", "machine learning", "data analysis", "model evaluation"],
+    "interview_topics": ["Statistics", "Feature engineering", "Model evaluation", "SQL", "Visualization"]
+  },
+  "AI/ML Engineer": {
+    "core_skills": ["Python", "Machine learning", "Deep learning", "Data preprocessing", "Model evaluation"],
+    "technologies": ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Pandas"],
+    "recommended_projects": ["Classification model", "Recommendation system", "NLP project"],
+    "certifications": ["AI for Everyone", "TensorFlow certification"],
+    "keywords": ["machine learning", "deep learning", "data preprocessing", "model evaluation", "python"],
+    "interview_topics": ["Model training", "Bias variance", "Feature engineering", "Neural networks", "Evaluation metrics"]
+  },
+  "Cloud Engineer": {
+    "core_skills": ["Cloud", "Linux", "Networking", "Security", "Automation"],
+    "technologies": ["AWS", "Azure", "GCP", "Docker", "Kubernetes"],
+    "recommended_projects": ["Cloud deployment pipeline", "Kubernetes cluster", "Infrastructure automation"],
+    "certifications": ["AWS Cloud Practitioner", "Azure Fundamentals"],
+    "keywords": ["cloud", "aws", "azure", "linux", "docker", "kubernetes"],
+    "interview_topics": ["Linux", "Networking", "Cloud architecture", "Containers", "CI/CD"]
+  },
+  "DevOps Engineer": {
+    "core_skills": ["Linux", "Docker", "CI/CD", "Git", "Monitoring"],
+    "technologies": ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "AWS"],
+    "recommended_projects": ["CI/CD pipeline setup", "Containerized deployment", "Monitoring dashboard"],
+    "certifications": ["AWS Cloud Practitioner", "Docker Essentials"],
+    "keywords": ["linux", "docker", "kubernetes", "ci/cd", "git", "automation"],
+    "interview_topics": ["Linux basics", "CI/CD", "Docker", "Monitoring", "Infrastructure as code"]
+  },
+  "Cybersecurity Analyst": {
+    "core_skills": ["Security", "Networking", "Linux", "Risk analysis", "Threat detection"],
+    "technologies": ["Linux", "Wireshark", "Nmap", "Firewall tools", "SIEM"],
+    "recommended_projects": ["Vulnerability assessment", "Network scanner", "Security log analysis"],
+    "certifications": ["CompTIA Security+", "Cisco CCNA Security"],
+    "keywords": ["security", "networking", "linux", "incident response", "firewall", "vulnerability assessment"],
+    "interview_topics": ["Threat modeling", "Security operations", "Networking", "Firewall basics", "Incident response"]
+  },
+  "UI/UX Designer": {
+    "core_skills": ["User research", "Wireframing", "Prototyping", "Accessibility", "Design systems"],
+    "technologies": ["Figma", "Adobe XD", "Sketch", "InVision"],
+    "recommended_projects": ["Mobile app flow", "Landing page redesign", "Dashboard redesign"],
+    "certifications": ["Google UX Design", "Adobe UX Design"],
+    "keywords": ["figma", "wireframe", "prototype", "user research", "design system", "ux"],
+    "interview_topics": ["User research", "Usability testing", "Design systems", "Visual hierarchy", "Accessibility"]
+  }
+}
