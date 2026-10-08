@@ -230,9 +230,9 @@ def test_pdf_safely_renders_xml_sensitive_unicode_and_control_characters():
 
 def test_pdf_frontend_checks_http_status_and_pdf_content_type():
     source_root = Path(__file__).resolve().parents[1]
-    main_script = (source_root / "static" / "js" / "main.js").read_text(encoding="utf-8")
-    jd_script = (source_root / "static" / "js" / "job-description.js").read_text(encoding="utf-8")
-    interview_script = (source_root / "static" / "js" / "interview.js").read_text(encoding="utf-8")
+    main_script = (source_root / "public" / "static" / "js" / "main.js").read_text(encoding="utf-8")
+    jd_script = (source_root / "public" / "static" / "js" / "job-description.js").read_text(encoding="utf-8")
+    interview_script = (source_root / "public" / "static" / "js" / "interview.js").read_text(encoding="utf-8")
 
     assert "if (!response.ok)" in main_script
     assert "contentType !== 'application/pdf'" in main_script

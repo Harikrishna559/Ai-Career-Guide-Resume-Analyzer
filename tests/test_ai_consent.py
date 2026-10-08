@@ -229,8 +229,8 @@ def test_frontend_disclosure_and_requests_do_not_persist_consent():
     from pathlib import Path
 
     root = Path(__file__).resolve().parents[1]
-    career_js = (root / "static" / "js" / "career.js").read_text(encoding="utf-8")
-    interview_js = (root / "static" / "js" / "interview.js").read_text(encoding="utf-8")
+    career_js = (root / "public" / "static" / "js" / "career.js").read_text(encoding="utf-8")
+    interview_js = (root / "public" / "static" / "js" / "interview.js").read_text(encoding="utf-8")
     career_template = (root / "templates" / "career-guide.html").read_text(encoding="utf-8")
     interview_template = (root / "templates" / "interview-simulator.html").read_text(encoding="utf-8")
     disclosure = (root / "templates" / "partials" / "ai_disclosure.html").read_text(encoding="utf-8")
@@ -240,7 +240,7 @@ def test_frontend_disclosure_and_requests_do_not_persist_consent():
     assert "render_ai_disclosure" in career_template
     assert "render_ai_disclosure" in interview_template
     assert "Google Gemini AI" in disclosure
-    assert "ai_consent" not in (root / "static" / "js" / "main.js").read_text(encoding="utf-8")
+    assert "ai_consent" not in (root / "public" / "static" / "js" / "main.js").read_text(encoding="utf-8")
 
 
 def test_ai_disclosure_renders_on_career_and_interview_pages():

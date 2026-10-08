@@ -32,7 +32,7 @@ def test_mobile_menu_markup_preserves_full_primary_and_utility_navigation():
 
 
 def test_mobile_menu_javascript_supports_toggle_selection_escape_and_outside_click():
-    script = (PROJECT_ROOT / "static" / "js" / "main.js").read_text(encoding="utf-8")
+    script = (PROJECT_ROOT / "public" / "static" / "js" / "main.js").read_text(encoding="utf-8")
 
     assert "menuToggle.setAttribute('aria-expanded', String(open))" in script
     assert "menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu')" in script
@@ -44,7 +44,7 @@ def test_mobile_menu_javascript_supports_toggle_selection_escape_and_outside_cli
 
 
 def test_navigation_css_keeps_desktop_links_and_expands_panel_on_tablet_and_mobile():
-    stylesheet = (PROJECT_ROOT / "static" / "css" / "style.css").read_text(encoding="utf-8")
+    stylesheet = (PROJECT_ROOT / "public" / "static" / "css" / "style.css").read_text(encoding="utf-8")
 
     assert ".navigation-panel {\n  display: contents;" in stylesheet
     assert ".navigation-panel.is-open {\n    display: block;" in stylesheet
@@ -55,9 +55,9 @@ def test_navigation_css_keeps_desktop_links_and_expands_panel_on_tablet_and_mobi
 
 
 def test_dashboard_and_local_storage_behavior_remain_linked_to_existing_helpers():
-    dashboard_script = (PROJECT_ROOT / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
+    dashboard_script = (PROJECT_ROOT / "public" / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
     base_template = (PROJECT_ROOT / "templates" / "base.html").read_text(encoding="utf-8")
-    storage_source = (PROJECT_ROOT / "static" / "js" / "main.js").read_text(encoding="utf-8")
+    storage_source = (PROJECT_ROOT / "public" / "static" / "js" / "main.js").read_text(encoding="utf-8")
 
     assert "window.appStorage.removeKeys(keys)" in dashboard_script
     assert "id=\"clear-saved-data\"" in (PROJECT_ROOT / "templates" / "dashboard.html").read_text(encoding="utf-8")

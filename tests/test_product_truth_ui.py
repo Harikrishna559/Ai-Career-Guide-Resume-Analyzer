@@ -9,7 +9,7 @@ def read_project_file(*parts):
 
 
 def test_resume_score_is_described_as_rule_based_not_ai_generated():
-    source = read_project_file("static", "js", "main.js")
+    source = read_project_file("public", "static", "js", "main.js")
 
     assert "Rule-based ATS compatibility estimate" in source
     assert "AI-generated ATS-style estimate" not in source
@@ -19,7 +19,7 @@ def test_resume_score_is_described_as_rule_based_not_ai_generated():
 
 
 def test_career_readiness_and_roadmap_progress_have_no_score_fallbacks():
-    source = read_project_file("static", "js", "main.js")
+    source = read_project_file("public", "static", "js", "main.js")
 
     assert "data.readiness_score || '68'" not in source
     assert ": 40" not in source
@@ -28,7 +28,7 @@ def test_career_readiness_and_roadmap_progress_have_no_score_fallbacks():
 
 
 def test_job_description_page_renders_structured_match_dimensions_and_unknowns():
-    source = read_project_file("static", "js", "job-description.js")
+    source = read_project_file("public", "static", "js", "job-description.js")
 
     for field in (
         "match_result",

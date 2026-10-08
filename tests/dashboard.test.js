@@ -5,7 +5,7 @@ const test = require('node:test');
 const vm = require('node:vm');
 
 const dashboardSource = fs.readFileSync(
-  path.join(__dirname, '..', 'static', 'js', 'dashboard.js'),
+  path.join(__dirname, '..', 'public', 'static', 'js', 'dashboard.js'),
   'utf8',
 );
 

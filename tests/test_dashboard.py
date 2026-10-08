@@ -29,7 +29,7 @@ def test_dashboard_renders_empty_state_shell_and_data_driven_script():
 
 
 def test_dashboard_metrics_use_valid_saved_values_or_explicit_empty_states():
-    script = (PROJECT_ROOT / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
+    script = (PROJECT_ROOT / "public" / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
 
     assert "getStoredObject('careerGuideResults')" in script
     assert "getStoredObject('resumeAnalysisResults')" in script
@@ -46,7 +46,7 @@ def test_dashboard_metrics_use_valid_saved_values_or_explicit_empty_states():
 
 
 def test_dashboard_has_no_fabricated_metric_fallbacks_and_clears_live_view():
-    script = (PROJECT_ROOT / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
+    script = (PROJECT_ROOT / "public" / "static" / "js" / "dashboard.js").read_text(encoding="utf-8")
 
     for fabricated_value in ("68", "78", "82", "40", "'Today'", '"Today"'):
         assert fabricated_value not in script
@@ -57,7 +57,7 @@ def test_dashboard_has_no_fabricated_metric_fallbacks_and_clears_live_view():
 
 
 def test_interview_summary_records_an_actual_practice_timestamp():
-    script = (PROJECT_ROOT / "static" / "js" / "interview.js").read_text(encoding="utf-8")
+    script = (PROJECT_ROOT / "public" / "static" / "js" / "interview.js").read_text(encoding="utf-8")
 
     assert "last_practice: new Date().toISOString()" in script
     assert "last_practice: 'Today'" not in script

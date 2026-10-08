@@ -53,9 +53,8 @@ forecasting, user accounts, authentication, or server-side multi-user storage.
 ├── services/               # Parsing, analysis, matching, and AI provider code
 │   └── ai/
 ├── templates/              # Flask/Jinja pages
-├── static/                 # CSS, JavaScript, and assets
+├── public/static/           # CSS, JavaScript, and assets served by Vercel
 ├── tests/                  # Python and Node tests
-├── uploads/                # Temporary resume processing directory
 └── reports/                # Reserved/ignored generated report directory
 ```
 
@@ -150,6 +149,16 @@ is prevented; do not set it based on untrusted client-supplied headers. The
 configured hop count also trusts `X-Forwarded-Proto` from those same proxies so
 production HTTPS detection and HSTS work behind TLS termination.
 
+For Vercel, the Flask application is detected from the exported `app` in
+`app.py` (also re-exported by `wsgi.py`); a `vercel.json` file is not required.
+Vercel serves assets from `public/`, while Flask templates continue to reference
+them at `/static/`. Resume uploads are written to the system temporary directory
+and removed after processing; temporary storage is not persistent across function
+invocations. Configure `APP_ENV=production`, a strong `SECRET_KEY`, and
+`AI_PROVIDER=gemini` / `GEMINI_API_KEY` privately in the Vercel project settings.
+The in-memory AI rate limiter is per function instance and is not a shared
+deployment-wide limit.
+
 PDF report requests are validated and limited to 1 MiB of JSON; generated PDFs
 are limited to 10 MiB. Responses include a compatible Content Security Policy,
 frame protection, and privacy-oriented referrer policy. HSTS is sent only for
@@ -179,12 +188,12 @@ development server is for local development only.
 ```bash
 python -m pytest -q
 python -m compileall .
-node --check static/js/main.js
-node --check static/js/job-description.js
-node --check static/js/interview.js
-node --check static/js/dashboard.js
-node --check static/js/career.js
-node --check static/js/resume.js
+node --check public/static/js/main.js
+node --check public/static/js/job-description.js
+node --check public/static/js/interview.js
+node --check public/static/js/dashboard.js
+node --check public/static/js/career.js
+node --check public/static/js/resume.js
 node --test tests/pdf-download.test.js tests/dashboard.test.js
 ```
 

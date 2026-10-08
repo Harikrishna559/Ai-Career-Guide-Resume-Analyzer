@@ -10,7 +10,7 @@ from services.interview_service import InterviewService
 def test_interview_frontend_uses_safe_dom_rendering():
     project_root = Path(__file__).resolve().parents[1]
     frontend_files = [
-        project_root / 'static' / 'js' / 'interview.js',
+        project_root / 'public' / 'static' / 'js' / 'interview.js',
         project_root / 'templates' / 'interview-simulator.html',
     ]
     unsafe_sink = re.compile(

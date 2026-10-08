@@ -6,7 +6,7 @@ const vm = require('node:vm');
 
 const window = {};
 const document = { addEventListener() {} };
-const source = fs.readFileSync(path.join(__dirname, '..', 'static', 'js', 'main.js'), 'utf8');
+const source = fs.readFileSync(path.join(__dirname, '..', 'public', 'static', 'js', 'main.js'), 'utf8');
 vm.runInNewContext(source, { window, document });
 
 test('PDF response reader returns a blob only for a successful PDF response', async () => {

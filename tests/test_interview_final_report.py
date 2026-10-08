@@ -81,7 +81,7 @@ def test_final_report_pdf_download_uses_existing_export_endpoint(client):
 
 
 def test_final_report_frontend_sends_evaluations_without_raw_answers():
-    script = (Path(__file__).resolve().parents[1] / "static" / "js" / "interview.js").read_text(encoding="utf-8")
+    script = (Path(__file__).resolve().parents[1] / "public" / "static" / "js" / "interview.js").read_text(encoding="utf-8")
 
     assert "results: state.results.map(item => ({" in script
     assert "evaluation: item.evaluation" in script

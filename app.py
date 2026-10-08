@@ -53,11 +53,12 @@ from services.resume_parser import (
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
-UPLOAD_DIR = BASE_DIR / "uploads"
-UPLOAD_DIR.mkdir(exist_ok=True)
+STATIC_DIR = BASE_DIR / "public" / "static"
+UPLOAD_DIR = Path(tempfile.gettempdir()) / "ai-career-guide-resume-analyzer" / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-app = Flask(__name__)
+app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_BYTES
 app.config["MAX_UPLOAD_SIZE_BYTES"] = MAX_UPLOAD_BYTES
 app.config["MAX_EXTRACTED_TEXT_CHARS"] = MAX_EXTRACTED_TEXT_CHARS
